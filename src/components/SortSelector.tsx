@@ -21,7 +21,8 @@ const SortSelector = ({ sortBy, onSelectedItem }: Props) => {
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
         Order by:{" "}
-        {sortOrder.find((order) => order.value == sortBy)?.label || "Relevence"}
+        {sortOrder.find((order) => order.value == sortBy)?.label ||
+          "Relevence "}
       </MenuButton>
       <MenuList>
         {sortOrder.map((order) => (
