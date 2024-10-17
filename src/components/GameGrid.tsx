@@ -16,23 +16,23 @@ const GameGrid = ({ gameQuery }: Props) => {
   const skeletons = [
     1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5,
   ];
+
+  if (error) return <Text>{error}</Text>;
+
   return (
-    <>
-      {error && <Text>{error}</Text>}
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={0.5}>
-        {isLoading &&
-          skeletons.map((s, index) => (
-            <GameCardSkeleton key={index}>
-              <SkeletonCard />
-            </GameCardSkeleton>
-          ))}
-        {items.map((item) => (
-          <GameCardSkeleton key={item.id}>
-            <GameCard game={item} />
+    <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={0.5}>
+      {isLoading &&
+        skeletons.map((s, index) => (
+          <GameCardSkeleton key={index}>
+            <SkeletonCard />
           </GameCardSkeleton>
         ))}
-      </SimpleGrid>
-    </>
+      {items.map((item) => (
+        <GameCardSkeleton key={item.id}>
+          <GameCard game={item} />
+        </GameCardSkeleton>
+      ))}
+    </SimpleGrid>
   );
 };
 
