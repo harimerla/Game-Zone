@@ -5,12 +5,13 @@ import SearchInput from "./SearchInput";
 
 interface Props {
   onSearchedInput: (searchValue: string) => void;
+  onLogoClick: () => void;
 }
 
-const Navbar = ({ onSearchedInput }: Props) => {
+const Navbar = ({ onSearchedInput, onLogoClick }: Props) => {
   return (
     <HStack justifyContent="space-between" padding="10px">
-      <Image src={logo} boxSize="60px" />
+      <Image src={logo} boxSize="60px" onClick={onLogoClick} />
       <SearchInput
         onSearchedInput={(searchValue) => onSearchedInput(searchValue)}
       ></SearchInput>
