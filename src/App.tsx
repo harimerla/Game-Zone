@@ -62,6 +62,7 @@ const App = () => {
               }
             />
             <SortSelector
+              sortBy={gameQuery.sortOrder}
               onSelectedItem={(order) =>
                 setGameQuery({ ...gameQuery, sortOrder: order })
               }
