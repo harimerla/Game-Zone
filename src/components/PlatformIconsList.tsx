@@ -1,5 +1,4 @@
 import React from "react";
-import { Platform } from "../hooks/useGames";
 import {
   FaAndroid,
   FaApple,
@@ -14,6 +13,7 @@ import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
 import { HStack, Icon } from "@chakra-ui/react";
 import { platform } from "os";
+import { Platform } from "../hooks/usePlatform";
 
 interface Props {
   platforms: Platform[];
