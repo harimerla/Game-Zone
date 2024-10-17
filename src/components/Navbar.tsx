@@ -3,11 +3,17 @@ import logo from "../asserts/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 
-const Navbar = () => {
+interface Props {
+  onSearchedInput: (searchValue: string) => void;
+}
+
+const Navbar = ({ onSearchedInput }: Props) => {
   return (
     <HStack justifyContent="space-between" padding="10px">
       <Image src={logo} boxSize="60px" />
-      <SearchInput></SearchInput>
+      <SearchInput
+        onSearchedInput={(searchValue) => onSearchedInput(searchValue)}
+      ></SearchInput>
       <ColorModeSwitch></ColorModeSwitch>
     </HStack>
   );
