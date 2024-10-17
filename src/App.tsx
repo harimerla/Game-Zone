@@ -4,7 +4,7 @@ import base from "@emotion/styled/types/base";
 import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
-import { Genre } from "./hooks/useData";
+import { Genre } from "./hooks/useGenres";
 
 const App = () => {
   const [selectedGenres, setSelectedGenres] = useState<Genre | null>(null);
@@ -24,7 +24,10 @@ const App = () => {
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
-          <GenreList onSelectedLink={(item) => setSelectedGenres(item)} />
+          <GenreList
+            selectedGenre={selectedGenres}
+            onSelectedLink={(item) => setSelectedGenres(item)}
+          />
         </GridItem>
       </Show>
       <GridItem area="main">

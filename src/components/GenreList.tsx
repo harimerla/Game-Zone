@@ -1,4 +1,5 @@
 import {
+  Button,
   HStack,
   Image,
   Link,
@@ -13,9 +14,10 @@ import getCroppedImage from "../services/image-url";
 
 interface Props {
   onSelectedLink: (item: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectedLink }: Props) => {
+const GenreList = ({ onSelectedLink, selectedGenre }: Props) => {
   const { items, error, isLoading } = useData<Genre>("genres");
   if (isLoading) return <Spinner />;
   if (error) return null;
@@ -29,9 +31,14 @@ const GenreList = ({ onSelectedLink }: Props) => {
               borderRadius={8}
               boxSize="32px"
             />
-            <Link onClick={() => onSelectedLink(item)} fontSize="lg">
+            <Button
+              fontWeight={item.id === selectedGenre?.id ? "bold" : ""}
+              onClick={() => onSelectedLink(item)}
+              fontSize="lg"
+              variant="link"
+            >
               {item.name}
-            </Link>
+            </Button>
           </HStack>
         </ListItem>
       ))}
