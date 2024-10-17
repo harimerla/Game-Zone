@@ -1,8 +1,8 @@
 export default [
     {
       "id": 4,
-      "name": "Actionnnnn",
-      "slug": "actionnnnn",
+      "name": "Action",
+      "slug": "action",
       "games_count": 182804,
       "image_background": "https://media.rawg.io/media/games/6fc/6fcf4cd3b17c288821388e6085bb0fc9.jpg",
       "games": [
